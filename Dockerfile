@@ -8,7 +8,7 @@ ARG vault_version=1.0.3
 ADD https://releases.hashicorp.com/vault/${vault_version}/vault_${vault_version}_linux_amd64.zip /usr/local/bin
 RUN cd /usr/local/bin && unzip vault_${vault_version}_linux_amd64.zip
 
-WORKDIR /go/src/github.com/fabiolb/fabio
+WORKDIR /go/src/github.com/viest/fabio
 COPY . .
 ENV GO111MODULE=on
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go test -mod=vendor -ldflags "-s -w" ./...
