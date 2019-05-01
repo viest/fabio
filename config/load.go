@@ -266,16 +266,11 @@ func load(cmdline, environ, envprefix []string, props *properties.Properties) (c
 		return nil, err
 	}
 
-
-	log.Printf("[INFO] local ip one: %s", cfg.Proxy.LocalIP)
-
 	if cfg.Proxy.LocalIP != "" {
 		if cfg.Proxy.LocalIP, err = gs.Parse(cfg.Proxy.LocalIP); err != nil {
 			return nil, fmt.Errorf("failed to parse local ip: %s", err)
 		}
 	}
-
-	log.Printf("[INFO] local ip two: %s", cfg.Proxy.LocalIP)
 
 	if cfg.Registry.Consul.ServiceAddr != "" {
 		if cfg.Registry.Consul.ServiceAddr, err = gs.Parse(cfg.Registry.Consul.ServiceAddr); err != nil {
