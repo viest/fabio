@@ -20,4 +20,4 @@ COPY --from=build /go/src/github.com/viest/fabio/fabio /usr/bin
 ADD fabio.properties /etc/fabio/fabio.properties
 EXPOSE 9998 9999
 ENTRYPOINT ["/usr/bin/fabio"]
-CMD ["-cfg", "/etc/fabio/fabio.properties"]
+CMD ["-insecure", "-cfg", "/etc/fabio/fabio.properties"]
